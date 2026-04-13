@@ -1,5 +1,5 @@
 [project]
-name = "charcoal"
+name = "charcoal-sdk"
 version = "0.0.1"
 description = "The official Python library for the charcoal API"
 dynamic = ["readme"]
