@@ -1,7 +1,7 @@
 # Charcoal Python API library
 
 <!-- prettier-ignore -->
-[![PyPI version](https://img.shields.io/pypi/v/charcoal.svg?label=pypi%20(stable))](https://pypi.org/project/charcoal/)
+[![PyPI version](https://img.shields.io/pypi/v/charcoal-sdk.svg?label=pypi%20(stable))](https://pypi.org/project/charcoal-sdk/)
 
 The Charcoal Python library provides convenient access to the Charcoal REST API from any Python 3.9+
 application. The library includes type definitions for all request params and response fields,
@@ -16,12 +16,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/JettiHQ/charcoal-python.git
+# install from PyPI
+pip install charcoal-sdk
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://www.stainless.com/docs/guides/publish), this will become: `pip install charcoal`
 
 ## Usage
 
@@ -85,8 +82,8 @@ By default, the async client uses `httpx` for HTTP requests. However, for improv
 You can enable this by installing `aiohttp`:
 
 ```sh
-# install from the production repo
-pip install 'charcoal[aiohttp] @ git+ssh://git@github.com/JettiHQ/charcoal-python.git'
+# install from PyPI
+pip install charcoal-sdk[aiohttp]
 ```
 
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
