@@ -17,8 +17,8 @@ from .._response import (
 )
 from .._base_client import make_request_options
 from ..types.api_key_list_response import APIKeyListResponse
-from ..types.api_key_create_response import APIKeyCreateResponse
 from ..types.api_key_delete_response import APIKeyDeleteResponse
+from ..types.create_api_key_response import CreateAPIKeyResponse
 
 __all__ = ["APIKeysResource", "AsyncAPIKeysResource"]
 
@@ -55,7 +55,7 @@ class APIKeysResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> APIKeyCreateResponse:
+    ) -> CreateAPIKeyResponse:
         """Creates a new API key for the authenticated organization.
 
         The response includes
@@ -78,7 +78,7 @@ class APIKeysResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=APIKeyCreateResponse,
+            cast_to=CreateAPIKeyResponse,
         )
 
     def list(
@@ -172,7 +172,7 @@ class AsyncAPIKeysResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> APIKeyCreateResponse:
+    ) -> CreateAPIKeyResponse:
         """Creates a new API key for the authenticated organization.
 
         The response includes
@@ -195,7 +195,7 @@ class AsyncAPIKeysResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=APIKeyCreateResponse,
+            cast_to=CreateAPIKeyResponse,
         )
 
     async def list(

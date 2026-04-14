@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2026-04-14)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** manual updates ([3d0bbdc](https://github.com/CharcoalHQ/charcoal-python/commit/3d0bbdc39d48d22c9285eeaef83a01ccfec6710c))
+
 ## 0.1.0 (2026-04-14)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.0.1...v0.1.0)
