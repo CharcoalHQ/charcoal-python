@@ -34,7 +34,7 @@ client = Charcoal(
 
 search_response = client.namespaces.search.create(
     namespace="contracts",
-    context="Find all sections related to indemnification, limitation of liability, or warranty disclaimers across our vendor contracts",
+    context="Reviewing vendor contracts for compliance. Focus on indemnification, warranty disclaimers, and liability caps. Ignore standard boilerplate.",
     objective="Identify liability clauses",
     stream=True,
 )
@@ -63,7 +63,7 @@ client = AsyncCharcoal(
 async def main() -> None:
     search_response = await client.namespaces.search.create(
         namespace="contracts",
-        context="Find all sections related to indemnification, limitation of liability, or warranty disclaimers across our vendor contracts",
+        context="Reviewing vendor contracts for compliance. Focus on indemnification, warranty disclaimers, and liability caps. Ignore standard boilerplate.",
         objective="Identify liability clauses",
         stream=True,
     )
@@ -102,7 +102,7 @@ async def main() -> None:
     ) as client:
         search_response = await client.namespaces.search.create(
             namespace="contracts",
-            context="Find all sections related to indemnification, limitation of liability, or warranty disclaimers across our vendor contracts",
+            context="Reviewing vendor contracts for compliance. Focus on indemnification, warranty disclaimers, and liability caps. Ignore standard boilerplate.",
             objective="Identify liability clauses",
             stream=True,
         )
@@ -139,7 +139,7 @@ client = Charcoal()
 try:
     client.namespaces.search.create(
         namespace="my-namespace",
-        context="What was our total revenue in Q4 2025?",
+        context="Looking for quarterly financial results, specifically total revenue and growth numbers.",
         objective="Find revenue figures",
     )
 except charcoal.APIConnectionError as e:
@@ -186,7 +186,7 @@ client = Charcoal(
 # Or, configure per-request:
 client.with_options(max_retries=5).namespaces.search.create(
     namespace="my-namespace",
-    context="What was our total revenue in Q4 2025?",
+    context="Looking for quarterly financial results, specifically total revenue and growth numbers.",
     objective="Find revenue figures",
 )
 ```
@@ -213,7 +213,7 @@ client = Charcoal(
 # Override per-request:
 client.with_options(timeout=5.0).namespaces.search.create(
     namespace="my-namespace",
-    context="What was our total revenue in Q4 2025?",
+    context="Looking for quarterly financial results, specifically total revenue and growth numbers.",
     objective="Find revenue figures",
 )
 ```
@@ -258,7 +258,7 @@ from charcoal import Charcoal
 client = Charcoal()
 response = client.namespaces.search.with_raw_response.create(
     namespace="my-namespace",
-    context="What was our total revenue in Q4 2025?",
+    context="Looking for quarterly financial results, specifically total revenue and growth numbers.",
     objective="Find revenue figures",
 )
 print(response.headers.get('X-My-Header'))
@@ -280,7 +280,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 ```python
 with client.namespaces.search.with_streaming_response.create(
     namespace="my-namespace",
-    context="What was our total revenue in Q4 2025?",
+    context="Looking for quarterly financial results, specifically total revenue and growth numbers.",
     objective="Find revenue figures",
 ) as response:
     print(response.headers.get("X-My-Header"))

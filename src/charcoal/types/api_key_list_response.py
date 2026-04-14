@@ -1,37 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Optional
-from datetime import datetime
+from typing import List
 
+from .api_key import APIKey
 from .._models import BaseModel
 
-__all__ = ["APIKeyListResponse", "APIKey"]
-
-
-class APIKey(BaseModel):
-    id: str
-    """Unique API key identifier (e.g. `akey_CjXuYOtW`)."""
-
-    created_at: datetime
-    """ISO 8601 timestamp."""
-
-    created_by: str
-    """Name or identifier of the user who created the key."""
-
-    key_prefix: str
-    """The prefix portion of the key (e.g. `sk-prod`)."""
-
-    key_suffix: str
-    """The last few characters of the key, for display."""
-
-    last_used_at: Optional[datetime] = None
-    """
-    ISO 8601 timestamp of the last request authenticated with this key, or `null` if
-    never used.
-    """
-
-    name: str
-    """Human-readable key name."""
+__all__ = ["APIKeyListResponse"]
 
 
 class APIKeyListResponse(BaseModel):

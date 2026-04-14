@@ -29,7 +29,12 @@ Methods:
 Types:
 
 ```python
-from charcoal.types.namespaces import SearchResponse, SearchResult
+from charcoal.types.namespaces import (
+    SearchContinuationRequest,
+    SearchRequest,
+    SearchResponse,
+    SearchResult,
+)
 ```
 
 Methods:
@@ -42,11 +47,11 @@ Methods:
 Types:
 
 ```python
-from charcoal.types import APIKeyCreateResponse, APIKeyListResponse, APIKeyDeleteResponse
+from charcoal.types import APIKey, CreateAPIKeyResponse, APIKeyListResponse, APIKeyDeleteResponse
 ```
 
 Methods:
 
-- <code title="post /v1/api_keys">client.api_keys.<a href="./src/charcoal/resources/api_keys.py">create</a>(\*\*<a href="src/charcoal/types/api_key_create_params.py">params</a>) -> <a href="./src/charcoal/types/api_key_create_response.py">APIKeyCreateResponse</a></code>
+- <code title="post /v1/api_keys">client.api_keys.<a href="./src/charcoal/resources/api_keys.py">create</a>(\*\*<a href="src/charcoal/types/api_key_create_params.py">params</a>) -> <a href="./src/charcoal/types/create_api_key_response.py">CreateAPIKeyResponse</a></code>
 - <code title="get /v1/api_keys">client.api_keys.<a href="./src/charcoal/resources/api_keys.py">list</a>() -> <a href="./src/charcoal/types/api_key_list_response.py">APIKeyListResponse</a></code>
 - <code title="delete /v1/api_keys/{id}">client.api_keys.<a href="./src/charcoal/resources/api_keys.py">delete</a>(id) -> <a href="./src/charcoal/types/api_key_delete_response.py">APIKeyDeleteResponse</a></code>
