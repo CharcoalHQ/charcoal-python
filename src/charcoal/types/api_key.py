@@ -5,7 +5,7 @@ from datetime import datetime
 
 from .._models import BaseModel
 
-__all__ = ["APIKeyCreateResponse", "APIKey"]
+__all__ = ["APIKey"]
 
 
 class APIKey(BaseModel):
@@ -32,15 +32,3 @@ class APIKey(BaseModel):
 
     name: str
     """Human-readable key name."""
-
-
-class APIKeyCreateResponse(BaseModel):
-    """Response from creating an API key.
-
-    The `raw_key` field is only returned on creation and cannot be retrieved again — store it securely.
-    """
-
-    api_key: APIKey
-
-    raw_key: str
-    """The full API key. Only returned at creation time."""
