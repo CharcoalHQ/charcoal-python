@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2026-04-15)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* stainless: generate proper streaming types for search ([395dd9c](https://github.com/CharcoalHQ/charcoal-python/commit/395dd9c94326b5f099892ff104701118dded01eb))
+
 ## 0.2.0 (2026-04-14)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.1.0...v0.2.0)
