@@ -59,6 +59,21 @@ class Stream(Generic[_T]):
 
         try:
             for sse in iterator:
+                if sse.event == "error":
+                    body = sse.data
+
+                    try:
+                        body = sse.json()
+                        err_msg = f"{body}"
+                    except Exception:
+                        err_msg = sse.data or f"Error code: {response.status_code}"
+
+                    raise self._client._make_status_error(
+                        err_msg,
+                        body=body,
+                        response=self.response,
+                    )
+
                 yield process_data(data=sse.json(), cast_to=cast_to, response=response)
         finally:
             # Ensure the response is closed even if the consumer doesn't read all data
@@ -125,6 +140,21 @@ class AsyncStream(Generic[_T]):
 
         try:
             async for sse in iterator:
+                if sse.event == "error":
+                    body = sse.data
+
+                    try:
+                        body = sse.json()
+                        err_msg = f"{body}"
+                    except Exception:
+                        err_msg = sse.data or f"Error code: {response.status_code}"
+
+                    raise self._client._make_status_error(
+                        err_msg,
+                        body=body,
+                        response=self.response,
+                    )
+
                 yield process_data(data=sse.json(), cast_to=cast_to, response=response)
         finally:
             # Ensure the response is closed even if the consumer doesn't read all data

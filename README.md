@@ -112,6 +112,42 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
+## Streaming responses
+
+We provide support for streaming responses using Server Side Events (SSE).
+
+```python
+from charcoal import Charcoal
+
+client = Charcoal()
+
+stream = client.namespaces.search.create(
+    namespace="contracts",
+    context="Reviewing vendor contracts for compliance. Focus on indemnification, warranty disclaimers, and liability caps. Ignore standard boilerplate.",
+    objective="Identify liability clauses",
+    stream=True,
+)
+for search_response in stream:
+    print(search_response.session_id)
+```
+
+The async client uses the exact same interface.
+
+```python
+from charcoal import AsyncCharcoal
+
+client = AsyncCharcoal()
+
+stream = await client.namespaces.search.create(
+    namespace="contracts",
+    context="Reviewing vendor contracts for compliance. Focus on indemnification, warranty disclaimers, and liability caps. Ignore standard boilerplate.",
+    objective="Identify liability clauses",
+    stream=True,
+)
+async for search_response in stream:
+    print(search_response.session_id)
+```
+
 ## Using types
 
 Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:
