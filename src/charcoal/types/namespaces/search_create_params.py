@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 from typing import Dict, Union, Iterable
-from typing_extensions import Required, Annotated, TypeAlias, TypedDict
+from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
 from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = [
-    "SearchCreateParams",
+    "SearchCreateParamsBase",
     "Filters",
     "FiltersAndCondition",
     "FiltersOrCondition",
@@ -26,10 +26,12 @@ __all__ = [
     "FiltersFieldConditionFiltersFieldConditionItemContainsAny",
     "FiltersFieldConditionFiltersFieldConditionItemGlob",
     "FiltersFieldConditionFiltersFieldConditionItemCaseInsensitiveGlob",
+    "SearchCreateParamsNonStreaming",
+    "SearchCreateParamsStreaming",
 ]
 
 
-class SearchCreateParams(TypedDict, total=False):
+class SearchCreateParamsBase(TypedDict, total=False):
     context: Required[str]
     """Additional context that helps the search system understand your intent.
 
@@ -56,9 +58,6 @@ class SearchCreateParams(TypedDict, total=False):
     `clarification_needed` status. When `false` (default), the search always
     completes in a single request.
     """
-
-    stream: bool
-    """Whether to stream the response as server-sent events."""
 
 
 class FiltersAndCondition(TypedDict, total=False):
@@ -140,3 +139,16 @@ FiltersFieldConditionFiltersFieldConditionItem: TypeAlias = Union[
 Filters: TypeAlias = Union[
     FiltersAndCondition, FiltersOrCondition, Dict[str, FiltersFieldConditionFiltersFieldConditionItem]
 ]
+
+
+class SearchCreateParamsNonStreaming(SearchCreateParamsBase, total=False):
+    stream: Literal[False]
+    """Whether to stream the response as server-sent events."""
+
+
+class SearchCreateParamsStreaming(SearchCreateParamsBase):
+    stream: Required[Literal[True]]
+    """Whether to stream the response as server-sent events."""
+
+
+SearchCreateParams = Union[SearchCreateParamsNonStreaming, SearchCreateParamsStreaming]
