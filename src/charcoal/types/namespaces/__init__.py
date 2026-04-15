@@ -6,6 +6,7 @@ from .document import Document as Document
 from .search_result import SearchResult as SearchResult
 from .document_param import DocumentParam as DocumentParam
 from .search_response import SearchResponse as SearchResponse
+from .search_stream_event import SearchStreamEvent as SearchStreamEvent
 from .search_create_params import SearchCreateParams as SearchCreateParams
 from .document_delete_params import DocumentDeleteParams as DocumentDeleteParams
 from .document_upsert_params import DocumentUpsertParams as DocumentUpsertParams

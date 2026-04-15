@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from typing_extensions import Required, TypedDict
+from typing import Union
+from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["SearchContinueParams"]
+__all__ = ["SearchContinueParamsBase", "SearchContinueParamsNonStreaming", "SearchContinueParamsStreaming"]
 
 
-class SearchContinueParams(TypedDict, total=False):
+class SearchContinueParamsBase(TypedDict, total=False):
     namespace: Required[str]
 
     message: Required[str]
@@ -16,5 +17,15 @@ class SearchContinueParams(TypedDict, total=False):
     include_attributes: bool
     """Whether to include document attributes in search results."""
 
-    stream: bool
+
+class SearchContinueParamsNonStreaming(SearchContinueParamsBase, total=False):
+    stream: Literal[False]
     """Whether to stream the response as server-sent events."""
+
+
+class SearchContinueParamsStreaming(SearchContinueParamsBase):
+    stream: Required[Literal[True]]
+    """Whether to stream the response as server-sent events."""
+
+
+SearchContinueParams = Union[SearchContinueParamsNonStreaming, SearchContinueParamsStreaming]

@@ -34,6 +34,7 @@ from charcoal.types.namespaces import (
     SearchRequest,
     SearchResponse,
     SearchResult,
+    SearchStreamEvent,
 )
 ```
 

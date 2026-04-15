@@ -19,7 +19,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_method_create(self, client: Charcoal) -> None:
+    def test_method_create_overload_1(self, client: Charcoal) -> None:
         search = client.namespaces.search.create(
             namespace="namespace",
             context="context",
@@ -29,7 +29,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_method_create_with_all_params(self, client: Charcoal) -> None:
+    def test_method_create_with_all_params_overload_1(self, client: Charcoal) -> None:
         search = client.namespaces.search.create(
             namespace="namespace",
             context="context",
@@ -37,13 +37,13 @@ class TestSearch:
             filters={"and_": [{}]},
             include_attributes=True,
             multiturn=True,
-            stream=True,
+            stream=False,
         )
         assert_matches_type(SearchResponse, search, path=["response"])
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_raw_response_create(self, client: Charcoal) -> None:
+    def test_raw_response_create_overload_1(self, client: Charcoal) -> None:
         response = client.namespaces.search.with_raw_response.create(
             namespace="namespace",
             context="context",
@@ -57,7 +57,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_streaming_response_create(self, client: Charcoal) -> None:
+    def test_streaming_response_create_overload_1(self, client: Charcoal) -> None:
         with client.namespaces.search.with_streaming_response.create(
             namespace="namespace",
             context="context",
@@ -73,7 +73,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_path_params_create(self, client: Charcoal) -> None:
+    def test_path_params_create_overload_1(self, client: Charcoal) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
             client.namespaces.search.with_raw_response.create(
                 namespace="",
@@ -83,7 +83,74 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_method_continue(self, client: Charcoal) -> None:
+    def test_method_create_overload_2(self, client: Charcoal) -> None:
+        search_stream = client.namespaces.search.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        )
+        search_stream.response.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_method_create_with_all_params_overload_2(self, client: Charcoal) -> None:
+        search_stream = client.namespaces.search.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+            filters={"and_": [{}]},
+            include_attributes=True,
+            multiturn=True,
+        )
+        search_stream.response.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_raw_response_create_overload_2(self, client: Charcoal) -> None:
+        response = client.namespaces.search.with_raw_response.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        )
+
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        stream = response.parse()
+        stream.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_streaming_response_create_overload_2(self, client: Charcoal) -> None:
+        with client.namespaces.search.with_streaming_response.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            stream = response.parse()
+            stream.close()
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_path_params_create_overload_2(self, client: Charcoal) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
+            client.namespaces.search.with_raw_response.create(
+                namespace="",
+                context="context",
+                objective="objective",
+                stream=True,
+            )
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_method_continue_overload_1(self, client: Charcoal) -> None:
         search = client.namespaces.search.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -93,19 +160,19 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_method_continue_with_all_params(self, client: Charcoal) -> None:
+    def test_method_continue_with_all_params_overload_1(self, client: Charcoal) -> None:
         search = client.namespaces.search.continue_(
             session_id="session_id",
             namespace="namespace",
             message="message",
             include_attributes=True,
-            stream=True,
+            stream=False,
         )
         assert_matches_type(SearchResponse, search, path=["response"])
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_raw_response_continue(self, client: Charcoal) -> None:
+    def test_raw_response_continue_overload_1(self, client: Charcoal) -> None:
         response = client.namespaces.search.with_raw_response.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -119,7 +186,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_streaming_response_continue(self, client: Charcoal) -> None:
+    def test_streaming_response_continue_overload_1(self, client: Charcoal) -> None:
         with client.namespaces.search.with_streaming_response.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -135,7 +202,7 @@ class TestSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    def test_path_params_continue(self, client: Charcoal) -> None:
+    def test_path_params_continue_overload_1(self, client: Charcoal) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
             client.namespaces.search.with_raw_response.continue_(
                 session_id="session_id",
@@ -150,6 +217,79 @@ class TestSearch:
                 message="message",
             )
 
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_method_continue_overload_2(self, client: Charcoal) -> None:
+        search_stream = client.namespaces.search.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        )
+        search_stream.response.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_method_continue_with_all_params_overload_2(self, client: Charcoal) -> None:
+        search_stream = client.namespaces.search.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+            include_attributes=True,
+        )
+        search_stream.response.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_raw_response_continue_overload_2(self, client: Charcoal) -> None:
+        response = client.namespaces.search.with_raw_response.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        )
+
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        stream = response.parse()
+        stream.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_streaming_response_continue_overload_2(self, client: Charcoal) -> None:
+        with client.namespaces.search.with_streaming_response.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            stream = response.parse()
+            stream.close()
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    def test_path_params_continue_overload_2(self, client: Charcoal) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
+            client.namespaces.search.with_raw_response.continue_(
+                session_id="session_id",
+                namespace="",
+                message="message",
+                stream=True,
+            )
+
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `session_id` but received ''"):
+            client.namespaces.search.with_raw_response.continue_(
+                session_id="",
+                namespace="namespace",
+                message="message",
+                stream=True,
+            )
+
 
 class TestAsyncSearch:
     parametrize = pytest.mark.parametrize(
@@ -158,7 +298,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_method_create(self, async_client: AsyncCharcoal) -> None:
+    async def test_method_create_overload_1(self, async_client: AsyncCharcoal) -> None:
         search = await async_client.namespaces.search.create(
             namespace="namespace",
             context="context",
@@ -168,7 +308,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_method_create_with_all_params(self, async_client: AsyncCharcoal) -> None:
+    async def test_method_create_with_all_params_overload_1(self, async_client: AsyncCharcoal) -> None:
         search = await async_client.namespaces.search.create(
             namespace="namespace",
             context="context",
@@ -176,13 +316,13 @@ class TestAsyncSearch:
             filters={"and_": [{}]},
             include_attributes=True,
             multiturn=True,
-            stream=True,
+            stream=False,
         )
         assert_matches_type(SearchResponse, search, path=["response"])
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_raw_response_create(self, async_client: AsyncCharcoal) -> None:
+    async def test_raw_response_create_overload_1(self, async_client: AsyncCharcoal) -> None:
         response = await async_client.namespaces.search.with_raw_response.create(
             namespace="namespace",
             context="context",
@@ -196,7 +336,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_streaming_response_create(self, async_client: AsyncCharcoal) -> None:
+    async def test_streaming_response_create_overload_1(self, async_client: AsyncCharcoal) -> None:
         async with async_client.namespaces.search.with_streaming_response.create(
             namespace="namespace",
             context="context",
@@ -212,7 +352,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_path_params_create(self, async_client: AsyncCharcoal) -> None:
+    async def test_path_params_create_overload_1(self, async_client: AsyncCharcoal) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
             await async_client.namespaces.search.with_raw_response.create(
                 namespace="",
@@ -222,7 +362,74 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_method_continue(self, async_client: AsyncCharcoal) -> None:
+    async def test_method_create_overload_2(self, async_client: AsyncCharcoal) -> None:
+        search_stream = await async_client.namespaces.search.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        )
+        await search_stream.response.aclose()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_method_create_with_all_params_overload_2(self, async_client: AsyncCharcoal) -> None:
+        search_stream = await async_client.namespaces.search.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+            filters={"and_": [{}]},
+            include_attributes=True,
+            multiturn=True,
+        )
+        await search_stream.response.aclose()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_raw_response_create_overload_2(self, async_client: AsyncCharcoal) -> None:
+        response = await async_client.namespaces.search.with_raw_response.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        )
+
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        stream = await response.parse()
+        await stream.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_streaming_response_create_overload_2(self, async_client: AsyncCharcoal) -> None:
+        async with async_client.namespaces.search.with_streaming_response.create(
+            namespace="namespace",
+            context="context",
+            objective="objective",
+            stream=True,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            stream = await response.parse()
+            await stream.close()
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_path_params_create_overload_2(self, async_client: AsyncCharcoal) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
+            await async_client.namespaces.search.with_raw_response.create(
+                namespace="",
+                context="context",
+                objective="objective",
+                stream=True,
+            )
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_method_continue_overload_1(self, async_client: AsyncCharcoal) -> None:
         search = await async_client.namespaces.search.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -232,19 +439,19 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_method_continue_with_all_params(self, async_client: AsyncCharcoal) -> None:
+    async def test_method_continue_with_all_params_overload_1(self, async_client: AsyncCharcoal) -> None:
         search = await async_client.namespaces.search.continue_(
             session_id="session_id",
             namespace="namespace",
             message="message",
             include_attributes=True,
-            stream=True,
+            stream=False,
         )
         assert_matches_type(SearchResponse, search, path=["response"])
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_raw_response_continue(self, async_client: AsyncCharcoal) -> None:
+    async def test_raw_response_continue_overload_1(self, async_client: AsyncCharcoal) -> None:
         response = await async_client.namespaces.search.with_raw_response.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -258,7 +465,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_streaming_response_continue(self, async_client: AsyncCharcoal) -> None:
+    async def test_streaming_response_continue_overload_1(self, async_client: AsyncCharcoal) -> None:
         async with async_client.namespaces.search.with_streaming_response.continue_(
             session_id="session_id",
             namespace="namespace",
@@ -274,7 +481,7 @@ class TestAsyncSearch:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
-    async def test_path_params_continue(self, async_client: AsyncCharcoal) -> None:
+    async def test_path_params_continue_overload_1(self, async_client: AsyncCharcoal) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
             await async_client.namespaces.search.with_raw_response.continue_(
                 session_id="session_id",
@@ -287,4 +494,77 @@ class TestAsyncSearch:
                 session_id="",
                 namespace="namespace",
                 message="message",
+            )
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_method_continue_overload_2(self, async_client: AsyncCharcoal) -> None:
+        search_stream = await async_client.namespaces.search.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        )
+        await search_stream.response.aclose()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_method_continue_with_all_params_overload_2(self, async_client: AsyncCharcoal) -> None:
+        search_stream = await async_client.namespaces.search.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+            include_attributes=True,
+        )
+        await search_stream.response.aclose()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_raw_response_continue_overload_2(self, async_client: AsyncCharcoal) -> None:
+        response = await async_client.namespaces.search.with_raw_response.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        )
+
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        stream = await response.parse()
+        await stream.close()
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_streaming_response_continue_overload_2(self, async_client: AsyncCharcoal) -> None:
+        async with async_client.namespaces.search.with_streaming_response.continue_(
+            session_id="session_id",
+            namespace="namespace",
+            message="message",
+            stream=True,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            stream = await response.parse()
+            await stream.close()
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_path_params_continue_overload_2(self, async_client: AsyncCharcoal) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `namespace` but received ''"):
+            await async_client.namespaces.search.with_raw_response.continue_(
+                session_id="session_id",
+                namespace="",
+                message="message",
+                stream=True,
+            )
+
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `session_id` but received ''"):
+            await async_client.namespaces.search.with_raw_response.continue_(
+                session_id="",
+                namespace="namespace",
+                message="message",
+                stream=True,
             )
