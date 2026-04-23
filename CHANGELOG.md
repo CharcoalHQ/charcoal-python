@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.1 (2026-04-23)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/CharcoalHQ/charcoal-python/compare/v0.3.0...v0.3.1)
+
+### Performance Improvements
+
+* **client:** optimize file structure copying in multipart requests ([c2da770](https://github.com/CharcoalHQ/charcoal-python/commit/c2da770dbd3208acd49ee22c99a38b1be4134676))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([89dcf6e](https://github.com/CharcoalHQ/charcoal-python/commit/89dcf6edf77a9bec8e79039ba0788a98bb1ec875))
+
 ## 0.3.0 (2026-04-15)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.2.0...v0.3.0)
