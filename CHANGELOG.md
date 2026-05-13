@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.3.1 (2026-05-13)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/CharcoalHQ/charcoal-python/compare/v0.3.0...v0.3.1)
+
+### Features
+
+* **internal/types:** support eagerly validating pydantic iterators ([59f6f0b](https://github.com/CharcoalHQ/charcoal-python/commit/59f6f0be532b99d014f69dd51545b8d61f5376f4))
+* support setting headers via env ([6ee9e16](https://github.com/CharcoalHQ/charcoal-python/commit/6ee9e1685e24ef3861118b3559e8fe35d6c858f3))
+
+
+### Bug Fixes
+
+* **client:** add missing f-string prefix in file type error message ([31c5ad9](https://github.com/CharcoalHQ/charcoal-python/commit/31c5ad9c7d7c96daaa728b16711ea778fcb17d9a))
+* use correct field name format for multipart file arrays ([f49cb21](https://github.com/CharcoalHQ/charcoal-python/commit/f49cb2194996d50abc5a8ec25f3bfed92b60850b))
+
+
+### Performance Improvements
+
+* **client:** optimize file structure copying in multipart requests ([c2da770](https://github.com/CharcoalHQ/charcoal-python/commit/c2da770dbd3208acd49ee22c99a38b1be4134676))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([89dcf6e](https://github.com/CharcoalHQ/charcoal-python/commit/89dcf6edf77a9bec8e79039ba0788a98bb1ec875))
+* **internal:** reformat pyproject.toml ([25206ac](https://github.com/CharcoalHQ/charcoal-python/commit/25206ac90463409df5e2ea6f406ef26a8375fd51))
+
 ## 0.3.0 (2026-04-15)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/CharcoalHQ/charcoal-python/compare/v0.2.0...v0.3.0)
